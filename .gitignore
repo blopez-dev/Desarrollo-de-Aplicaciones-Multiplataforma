@@ -1,10 +1,16 @@
+# General
+.DS_Store
+.localized
+__MACOSX/
+.AppleDouble
+.LSOverride
 # Folders
 node_modules/
 __pychache__/
 build/
 .vscode/
 .vs
-.idea
+.idea/
 
 # JS
 package-lock.json
