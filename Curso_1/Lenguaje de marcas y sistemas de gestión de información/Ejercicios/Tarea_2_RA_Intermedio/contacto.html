@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penyagolosa Trails | Contacto</title>
+    <meta name="description" content="Formulario de contacto y localizacion de esta guia no oficial de Penyagolosa Trails.">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <header class="cabecera">
+        <div class="cabecera__interior">
+            <a href="index.html" class="logotipo">
+                <img src="assets/img/logotipo.svg" alt="Logotipo de Penyagolosa Trails (guia no oficial)">
+                <span class="logotipo__texto">
+                    Penyagolosa Trails
+                    <span class="logotipo__lema">De Castello a Sant Joan, paso a paso</span>
+                </span>
+            </a>
+            <nav class="menu" aria-label="Menu principal">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="rutas.html">Recorridos</a></li>
+                    <li><a href="consejos.html">Avituallamiento y material</a></li>
+                    <li><a href="contacto.html" class="activo">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <h1>Contacto</h1>
+        <p>
+            Si quieres proponer una mejora, comentar un error en una ficha o simplemente
+            saludar, escribenos con el siguiente formulario. Recuerda que para inscripciones
+            y dudas oficiales de carrera debes contactar directamente con la organizacion.
+        </p>
+
+        <!-- Indice con anclas internas -->
+        <nav class="indice" aria-label="Contenidos de esta pagina">
+            <h2>En esta pagina</h2>
+            <ul>
+                <li><a href="#formulario-contacto">Formulario de contacto</a></li>
+                <li><a href="#localizacion">Donde esta la salida</a></li>
+            </ul>
+        </nav>
+
+        <!-- ===================================================================
+             FORMULARIO DE CONTACTO
+             El "action" apunta a un servicio externo de pruebas (httpbin), ya que
+             el sitio no dispone de servidor propio: al enviarlo se puede comprobar
+             que los datos introducidos llegan correctamente.
+             =================================================================== -->
+        <section id="formulario-contacto">
+            <h2>Formulario de contacto</h2>
+            <form class="formulario" action="https://httpbin.org/post" method="post">
+
+                <fieldset>
+                    <legend>Tus datos</legend>
+
+                    <div class="campo-doble">
+                        <div class="campo">
+                            <label for="nombre">Nombre <span class="obligatorio">*</span></label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="campo">
+                            <label for="email">Correo electronico <span class="obligatorio">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+                        </div>
+                    </div>
+
+                    <div class="campo-doble">
+                        <div class="campo">
+                            <label for="telefono">Telefono</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="600 000 000"
+                                   pattern="[0-9 ]{9,15}">
+                            <span class="ayuda">Opcional, solo si prefieres que te llamemos.</span>
+                        </div>
+                        <div class="campo">
+                            <label for="fecha-carrera">Fecha de la proxima edicion que te interesa</label>
+                            <input type="date" id="fecha-carrera" name="fecha-carrera">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Sobre tu consulta</legend>
+
+                    <div class="campo">
+                        <label for="recorrido-interes">Recorrido de interes</label>
+                        <select id="recorrido-interes" name="recorrido-interes">
+                            <option value="" selected>Selecciona una opcion</option>
+                            <option value="fuga">FUGA</option>
+                            <option value="mim">Marato i Mitja (MiM)</option>
+                            <option value="csp">Curs Suprema (CSP)</option>
+                            <option value="otra">Otra / no lo se todavia</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label>Nivel de experiencia en trail running</label>
+                        <div class="opciones">
+                            <label><input type="radio" name="experiencia" value="inicial" checked> Inicial</label>
+                            <label><input type="radio" name="experiencia" value="intermedio"> Intermedio</label>
+                            <label><input type="radio" name="experiencia" value="avanzado"> Avanzado</label>
+                        </div>
+                    </div>
+
+                    <div class="campo">
+                        <label>Te interesa recibir...</label>
+                        <div class="opciones">
+                            <label><input type="checkbox" name="intereses" value="newsletter"> Boletin de novedades de la carrera</label>
+                            <label><input type="checkbox" name="intereses" value="material-obligatorio"> Avisos de cambios en el material obligatorio</label>
+                            <label><input type="checkbox" name="intereses" value="quedadas"> Convocatorias de quedadas para entrenar</label>
+                        </div>
+                    </div>
+
+                    <div class="campo">
+                        <label for="mensaje">Mensaje <span class="obligatorio">*</span></label>
+                        <textarea id="mensaje" name="mensaje" placeholder="Cuentanos en que podemos ayudarte" required></textarea>
+                    </div>
+                </fieldset>
+
+                <div class="botonera">
+                    <button type="submit" class="boton">Enviar mensaje</button>
+                    <button type="reset" class="boton boton--secundario">Borrar formulario</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- ================= LOCALIZACION (mapa embebido, multimedia) ================= -->
+        <section id="localizacion">
+            <h2>Donde esta la salida</h2>
+            <p>
+                Penyagolosa Trails sale desde el centro de Castellon de la Plana y termina en el
+                Santuario de Sant Joan de Penyagolosa, como se ve en el mapa:
+            </p>
+            <div class="video-responsivo">
+                <iframe
+                    src="https://www.google.com/maps?q=Castell%C3%B3n%20de%20la%20Plana&output=embed"
+                    title="Mapa de localizacion de Castellon de la Plana"
+                    loading="lazy">
+                </iframe>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="pie">
+        <div class="pie__interior">
+            <div>
+                <h2>Penyagolosa Trails</h2>
+                <p>Guia no oficial creada como proyecto academico para la Tarea 2 de LMSI.</p>
+            </div>
+            <div>
+                <h2>Navegacion</h2>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="rutas.html">Recorridos</a></li>
+                    <li><a href="consejos.html">Avituallamiento y material</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h2>Contacto</h2>
+                <address>
+                    Castellon de la Plana, Espana<br>
+                    <a href="mailto:info@penyagolosatrailsguia.example">info@penyagolosatrailsguia.example</a>
+                </address>
+            </div>
+        </div>
+        <p class="pie__aviso">Sitio de aficionado con fines academicos, sin relacion oficial con la organizacion. &copy; 2026 Penyagolosa Trails (guia no oficial).</p>
+    </footer>
+
+</body>
+</html>

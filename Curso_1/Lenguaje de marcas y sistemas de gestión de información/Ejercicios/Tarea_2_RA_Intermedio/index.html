@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penyagolosa Trails | Inicio</title>
+    <meta name="description" content="Guia no oficial de la carrera de montana Penyagolosa Trails (Castellon de la Plana): recorridos, avituallamientos y material obligatorio.">
+    <!-- Hoja de estilos propia, con ruta relativa: el sitio no depende de ningun servidor. -->
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <!-- ===================================================================
+         CABECERA: logotipo + menu principal (4 paginas enlazadas entre si)
+         =================================================================== -->
+    <header class="cabecera">
+        <div class="cabecera__interior">
+            <a href="index.html" class="logotipo">
+                <img src="assets/img/logotipo.svg" alt="Logotipo de Penyagolosa Trails (guia no oficial)">
+                <span class="logotipo__texto">
+                    Penyagolosa Trails
+                    <span class="logotipo__lema">De Castello a Sant Joan, paso a paso</span>
+                </span>
+            </a>
+            <nav class="menu" aria-label="Menu principal">
+                <ul>
+                    <li><a href="index.html" class="activo">Inicio</a></li>
+                    <li><a href="rutas.html">Recorridos</a></li>
+                    <li><a href="consejos.html">Avituallamiento y material</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===================================================================
+         PORTADA (hero): imagen SVG local a modo de fotografia de cabecera
+         =================================================================== -->
+    <div class="hero">
+        <img src="assets/img/hero-sierra.svg" alt="Amanecer sobre las cumbres del macizo de Penyagolosa">
+        <div class="hero__texto">
+            <h1>Penyagolosa Trails</h1>
+            <p>Del Mediterraneo, en Castellon de la Plana, hasta el Santuario de Sant Joan de Penyagolosa.</p>
+        </div>
+    </div>
+
+    <main>
+
+        <!-- Indice de la pagina: enlaces internos (anclas) a las secciones de abajo -->
+        <nav class="indice" aria-label="Contenidos de esta pagina">
+            <h2>En esta pagina</h2>
+            <ul>
+                <li><a href="#bienvenida">Bienvenida</a></li>
+                <li><a href="#por-que">Por que seguir esta carrera</a></li>
+                <li><a href="#destacadas">Recorridos destacados</a></li>
+                <li><a href="#sobre-esta-guia">Sobre esta guia</a></li>
+                <li><a href="#enlaces-externos">Recursos externos</a></li>
+            </ul>
+        </nav>
+
+        <!-- ================= BIENVENIDA ================= -->
+        <section id="bienvenida">
+            <h2>Bienvenida</h2>
+            <p>
+                <strong>Penyagolosa Trails</strong> es una de las carreras de montana mas veteranas de
+                Espana: cada mes de abril une la ciudad de <strong>Castellon de la Plana</strong>, casi
+                a nivel del mar, con el <strong>Santuario de Sant Joan de Penyagolosa</strong>, a 1.280
+                metros de altitud, atravesando localidades como Borriol, Vilafames o Les Useres. Esta
+                pagina es una guia no oficial, hecha con fines academicos para la
+                <strong>Tarea 2 (R.A. Intermedio)</strong> de la asignatura de Lenguaje de Marcas y
+                Sistemas de Gestion de Informacion.
+            </p>
+            <p class="destacado">
+                <strong>Dato de interes:</strong> la prueba reina, la
+                <abbr title="Marato i Mitja">MiM</abbr>, recorre <strong>60 km</strong> con mas de
+                <strong>3.300 m</strong> de desnivel positivo, mientras que la ultra
+                <abbr title="Curs Suprema Penyagolosa">CSP</abbr> supera los <strong>106 km</strong> y
+                los <strong>5.600 m</strong> de desnivel. Toda la informacion oficial y actualizada esta
+                en
+                <a href="https://www.penyagolosatrails.com/" target="_blank" rel="noopener noreferrer">
+                    penyagolosatrails.com
+                </a>.
+            </p>
+        </section>
+
+        <!-- ================= POR QUE (lista no ordenada) ================= -->
+        <section id="por-que">
+            <h2>Por que seguir esta carrera</h2>
+            <ul class="lista-consejos">
+                <li>Une el paisaje mediterraneo de Castellon con el interior de montana en un solo recorrido.</li>
+                <li>Organizacion veterana, con decenas de voluntarios en cada avituallamiento.</li>
+                <li>Ambiente de "fiesta mayor" al paso por cada pueblo del trazado.</li>
+                <li>Varias distancias (FUGA, MiM y CSP) para todos los niveles de corredor.</li>
+            </ul>
+        </section>
+
+        <!-- ================= RECORRIDOS DESTACADOS (tarjetas con enlaces internos entre paginas) ================= -->
+        <section id="destacadas">
+            <h2>Recorridos destacados</h2>
+            <div class="rejilla">
+                <article class="tarjeta">
+                    <img src="assets/img/hero-sierra.svg" alt="Trazado de la prueba corta FUGA Penyagolosa Trails">
+                    <div class="tarjeta__cuerpo">
+                        <h3>FUGA</h3>
+                        <p>La distancia mas corta y accesible, ideal para debutar en montana. Ver ficha completa.</p>
+                        <!-- Enlace interno que apunta a un ancla dentro de OTRA pagina del propio sitio -->
+                        <a href="rutas.html#fuga">Ir a la ficha &rarr;</a>
+                    </div>
+                </article>
+                <article class="tarjeta">
+                    <img src="assets/img/hero-sierra.svg" alt="Trazado de la Marato i Mitja de Penyagolosa Trails">
+                    <div class="tarjeta__cuerpo">
+                        <h3>Marato i Mitja (MiM)</h3>
+                        <p>La prueba clasica: 60 km desde Castellon hasta el Santuario de Sant Joan.</p>
+                        <a href="rutas.html#mim">Ir a la ficha &rarr;</a>
+                    </div>
+                </article>
+                <article class="tarjeta">
+                    <img src="assets/img/hero-sierra.svg" alt="Trazado de la ultra CSP de Penyagolosa Trails">
+                    <div class="tarjeta__cuerpo">
+                        <h3>Curs Suprema (CSP)</h3>
+                        <p>La ultra distancia, 106 km y mas de 5.600 m de desnivel positivo.</p>
+                        <a href="rutas.html#csp">Ir a la ficha &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ================= SOBRE ESTA GUIA ================= -->
+        <section id="sobre-esta-guia">
+            <h2>Sobre esta guia</h2>
+            <p>
+                Este sitio nace como practica de HTML y CSS. Es un proyecto de <strong>aficionado, no
+                oficial y sin animo de lucro</strong>, pensado como si fuera una web de fans que quiere
+                animar a mas corredores a conocer Penyagolosa Trails. Para inscripciones, normativa y
+                horarios definitivos consulta siempre la web oficial de la organizacion.
+            </p>
+            <a href="#bienvenida" class="volver">&uarr; Volver al principio de la pagina</a>
+        </section>
+
+        <!-- ================= ENLACES EXTERNOS ================= -->
+        <section id="enlaces-externos">
+            <h2>Recursos externos</h2>
+            <p>Algunos enlaces utiles para conocer mejor la prueba:</p>
+            <ul>
+                <li>
+                    <a href="https://www.penyagolosatrails.com/" target="_blank" rel="noopener noreferrer">
+                        Penyagolosatrails.com &mdash; Web oficial de la organizacion
+                    </a>
+                </li>
+                <li>
+                    <a href="https://utmb.world/es/utmb-index/races/48.asicspenyagolosatrailsmim.2025" target="_blank" rel="noopener noreferrer">
+                        UTMB World &mdash; Ficha de la ASICS Penyagolosa Trails MiM
+                    </a>
+                </li>
+                <li>
+                    <a href="https://es.wikipedia.org/wiki/Penyagolosa" target="_blank" rel="noopener noreferrer">
+                        Wikipedia &mdash; Macizo del Penyagolosa
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- ===================================================================
+         PIE DE PAGINA
+         =================================================================== -->
+    <footer class="pie">
+        <div class="pie__interior">
+            <div>
+                <h2>Penyagolosa Trails</h2>
+                <p>Guia no oficial creada como proyecto academico para la Tarea 2 de LMSI.</p>
+            </div>
+            <div>
+                <h2>Navegacion</h2>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="rutas.html">Recorridos</a></li>
+                    <li><a href="consejos.html">Avituallamiento y material</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h2>Contacto</h2>
+                <address>
+                    Castellon de la Plana, Espana<br>
+                    <a href="mailto:info@penyagolosatrailsguia.example">info@penyagolosatrailsguia.example</a>
+                </address>
+            </div>
+        </div>
+        <p class="pie__aviso">Sitio de aficionado con fines academicos, sin relacion oficial con la organizacion. &copy; 2026 Penyagolosa Trails (guia no oficial).</p>
+    </footer>
+
+</body>
+</html>

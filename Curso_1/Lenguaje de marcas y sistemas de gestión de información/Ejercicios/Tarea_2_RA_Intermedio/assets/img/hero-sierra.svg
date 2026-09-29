@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Imagen de portada (PLACEHOLDER): amanecer sobre el macizo del Penyagolosa.
+     Sustituir por una fotografia real manteniendo el mismo nombre de archivo. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420" role="img" aria-label="Amanecer sobre las cumbres del macizo de Penyagolosa">
+    <defs>
+        <linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"   stop-color="#1f3a5f"/>
+            <stop offset="55%"  stop-color="#c96f3c"/>
+            <stop offset="100%" stop-color="#f2c27b"/>
+        </linearGradient>
+    </defs>
+
+    <rect width="1200" height="420" fill="url(#cielo)"/>
+    <circle cx="880" cy="250" r="52" fill="#ffd89b" opacity="0.9"/>
+
+    <!-- Cordillera de fondo -->
+    <path d="M0 300 L150 190 L280 270 L420 150 L560 280 L700 180 L860 290 L1010 200 L1200 300 L1200 420 L0 420 Z" fill="#2f5d45"/>
+    <!-- Cordillera intermedia -->
+    <path d="M0 350 L180 260 L330 330 L500 240 L680 340 L850 265 L1040 345 L1200 285 L1200 420 L0 420 Z" fill="#1f4d33"/>
+    <!-- Primer plano -->
+    <path d="M0 390 L200 340 L400 395 L620 345 L820 400 L1040 350 L1200 395 L1200 420 L0 420 Z" fill="#143322"/>
+    <!-- Sendero -->
+    <path d="M520 420 Q560 380 540 345 T580 285" fill="none" stroke="#d2a679" stroke-width="7" stroke-linecap="round" opacity="0.75"/>
+</svg>

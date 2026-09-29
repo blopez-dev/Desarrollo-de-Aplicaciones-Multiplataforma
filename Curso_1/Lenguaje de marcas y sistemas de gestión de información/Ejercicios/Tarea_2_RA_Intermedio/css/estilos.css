@@ -1,0 +1,728 @@
+/* ==========================================================================
+   Penyagolosa Trails (guia no oficial) - Hoja de estilos principal
+   Tarea 2 (R.A. Intermedio) - Lenguaje de Marcas y Sistemas de Gestion de Informacion
+   Autor: Pablo J.
+   --------------------------------------------------------------------------
+   Indice de contenidos de esta hoja:
+     1. Reset ligero y variables de color
+     2. Tipografia y elementos base
+     3. Cabecera y menu de navegacion
+     4. Portada (hero) y secciones generales
+     5. Tarjetas y rejillas
+     6. Listas
+     7. Multimedia (figuras, video, audio, iframe)
+     8. Tablas
+     9. Formulario
+    10. Pie de pagina
+    11. Diseno adaptable (media queries)
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. Reset ligero y variables de color
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Paleta terrosa de montana: verde bosque, naranja sendero y tonos piedra.
+   Se declaran como variables para reutilizarlas en toda la hoja. */
+:root {
+    --color-bosque:      #1f4d33;
+    --color-bosque-osc:  #143322;
+    --color-sendero:     #d2691e;
+    --color-sendero-osc: #a8500f;
+    --color-piedra:      #f4f1ec;
+    --color-piedra-osc:  #ddd6cb;
+    --color-texto:       #2b2b28;
+    --color-texto-suave: #5d5d55;
+    --color-blanco:      #ffffff;
+
+    --ancho-maximo:  1100px;
+    --radio:         8px;
+    --sombra:        0 2px 8px rgba(0, 0, 0, 0.12);
+    --transicion:    0.2s ease-in-out;
+}
+
+
+/* ==========================================================================
+   2. Tipografia y elementos base
+   ========================================================================== */
+
+body {
+    /* Pila de fuentes del sistema: el sitio no depende de ninguna CDN externa
+       y por tanto funciona correctamente sin conexion a Internet. */
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--color-texto);
+    background-color: var(--color-piedra);
+    margin: 0;
+}
+
+h1, h2, h3, h4 {
+    line-height: 1.25;
+    color: var(--color-bosque-osc);
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 2.4rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    border-bottom: 3px solid var(--color-sendero);
+    padding-bottom: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.3rem;
+    color: var(--color-sendero-osc);
+}
+
+p {
+    margin: 0 0 1rem;
+}
+
+a {
+    color: var(--color-sendero-osc);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color var(--transicion), border-color var(--transicion);
+}
+
+a:hover {
+    color: var(--color-bosque);
+    border-bottom-color: var(--color-bosque);
+}
+
+/* Indicador de foco visible: mejora la accesibilidad al navegar con teclado. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--color-sendero);
+    outline-offset: 2px;
+}
+
+abbr[title] {
+    text-decoration: underline dotted;
+    cursor: help;
+}
+
+
+/* ==========================================================================
+   3. Cabecera y menu de navegacion
+   ========================================================================== */
+
+.cabecera {
+    background-color: var(--color-bosque);
+    color: var(--color-blanco);
+    box-shadow: var(--sombra);
+}
+
+.cabecera__interior {
+    max-width: var(--ancho-maximo);
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.logotipo {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: var(--color-blanco);
+    border-bottom: none;
+}
+
+.logotipo:hover {
+    color: var(--color-piedra-osc);
+}
+
+.logotipo img {
+    width: 44px;
+    height: 44px;
+}
+
+.logotipo__texto {
+    font-size: 1.25rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.logotipo__lema {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: normal;
+    opacity: 0.8;
+}
+
+/* Menu principal: enlaza las cuatro paginas del sitio entre si. */
+.menu ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin: 0;
+    padding: 0;
+}
+
+.menu a {
+    display: block;
+    padding: 0.5rem 0.9rem;
+    color: var(--color-blanco);
+    border-bottom: none;
+    border-radius: var(--radio);
+    transition: background-color var(--transicion);
+}
+
+.menu a:hover {
+    background-color: var(--color-bosque-osc);
+    color: var(--color-blanco);
+}
+
+/* La clase "activo" marca en que pagina se encuentra el visitante. */
+.menu a.activo {
+    background-color: var(--color-sendero);
+    color: var(--color-blanco);
+    font-weight: bold;
+}
+
+
+/* ==========================================================================
+   4. Portada (hero) y secciones generales
+   ========================================================================== */
+
+.hero {
+    position: relative;
+    background-color: var(--color-bosque-osc);
+}
+
+.hero img {
+    display: block;
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    opacity: 0.85;
+}
+
+.hero__texto {
+    max-width: var(--ancho-maximo);
+    margin: 0 auto;
+    padding: 1.5rem;
+    color: var(--color-blanco);
+    text-align: center;
+}
+
+.hero__texto h1 {
+    color: var(--color-blanco);
+}
+
+.hero__texto p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+main {
+    max-width: var(--ancho-maximo);
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+}
+
+section {
+    margin-bottom: 2.5rem;
+}
+
+/* Bloque destacado para avisos y datos de interes. */
+.destacado {
+    background-color: var(--color-blanco);
+    border-left: 5px solid var(--color-sendero);
+    border-radius: var(--radio);
+    padding: 1rem 1.2rem;
+    box-shadow: var(--sombra);
+}
+
+/* Indice de enlaces internos (anclas) que abre las paginas largas. */
+.indice {
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-piedra-osc);
+    border-radius: var(--radio);
+    padding: 1rem 1.5rem;
+}
+
+.indice h2 {
+    font-size: 1.2rem;
+    border-bottom: none;
+    margin-bottom: 0.5rem;
+}
+
+/* Enlace interno de retorno al inicio de la pagina. */
+.volver {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+
+/* ==========================================================================
+   5. Tarjetas y rejillas
+   ========================================================================== */
+
+.rejilla {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.tarjeta {
+    background-color: var(--color-blanco);
+    border-radius: var(--radio);
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+.tarjeta:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+
+.tarjeta__cuerpo {
+    padding: 1rem 1.2rem 1.4rem;
+    flex-grow: 1;
+}
+
+.tarjeta__cuerpo h3 {
+    margin-top: 0;
+}
+
+
+/* ==========================================================================
+   6. Listas
+   ========================================================================== */
+
+/* Lista no ordenada con vineta personalizada. */
+.lista-consejos {
+    list-style: none;
+    padding-left: 0;
+}
+
+.lista-consejos li {
+    position: relative;
+    padding-left: 1.8rem;
+    margin-bottom: 0.6rem;
+}
+
+.lista-consejos li::before {
+    content: "\25B2";                 /* Triangulo: simula una montana. */
+    color: var(--color-sendero);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Lista ordenada usada para itinerarios y planes de entrenamiento. */
+.lista-pasos {
+    padding-left: 1.4rem;
+}
+
+.lista-pasos li {
+    margin-bottom: 0.5rem;
+    padding-left: 0.3rem;
+}
+
+/* Lista de definiciones: glosario de terminos de la carrera. */
+.glosario {
+    background-color: var(--color-blanco);
+    border-radius: var(--radio);
+    padding: 1.2rem 1.5rem;
+    box-shadow: var(--sombra);
+    margin: 0;
+}
+
+.glosario dt {
+    font-weight: bold;
+    color: var(--color-bosque);
+    margin-top: 0.8rem;
+}
+
+.glosario dd {
+    margin: 0.2rem 0 0 1.2rem;
+    color: var(--color-texto-suave);
+}
+
+/* Ficha tecnica de cada ruta: lista de definiciones en dos columnas. */
+.ficha {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.3rem 1rem;
+    margin: 0 0 1rem;
+}
+
+.ficha dt {
+    font-weight: bold;
+    color: var(--color-bosque);
+}
+
+.ficha dd {
+    margin: 0;
+}
+
+
+/* ==========================================================================
+   7. Multimedia (figuras, video, audio, iframe)
+   ========================================================================== */
+
+figure {
+    margin: 0 0 1.5rem;
+    background-color: var(--color-blanco);
+    border-radius: var(--radio);
+    overflow: hidden;
+    box-shadow: var(--sombra);
+}
+
+figure img,
+figure video {
+    display: block;
+    width: 100%;
+}
+
+figcaption {
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+    color: var(--color-texto-suave);
+    font-style: italic;
+}
+
+/* Contenedor de proporcion 16:9 para que el iframe de YouTube
+   se adapte al ancho disponible sin deformarse. */
+.video-responsivo {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;              /* 9 / 16 = 0.5625 */
+    border-radius: var(--radio);
+    overflow: hidden;
+    box-shadow: var(--sombra);
+}
+
+.video-responsivo iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+audio,
+video {
+    max-width: 100%;
+}
+
+.reproductor-audio {
+    background-color: var(--color-blanco);
+    border-radius: var(--radio);
+    padding: 1rem 1.2rem;
+    box-shadow: var(--sombra);
+}
+
+.reproductor-audio audio {
+    width: 100%;
+}
+
+
+/* ==========================================================================
+   8. Tablas
+   ========================================================================== */
+
+/* Envoltorio que permite desplazar la tabla en horizontal en pantallas pequenas. */
+.tabla-scroll {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-blanco);
+    box-shadow: var(--sombra);
+    border-radius: var(--radio);
+    overflow: hidden;
+}
+
+caption {
+    caption-side: top;
+    text-align: left;
+    font-weight: bold;
+    color: var(--color-bosque);
+    padding: 0 0 0.6rem;
+}
+
+th,
+td {
+    padding: 0.65rem 0.9rem;
+    border: 1px solid var(--color-piedra-osc);
+    text-align: left;
+    vertical-align: middle;
+}
+
+thead th {
+    background-color: var(--color-bosque);
+    color: var(--color-blanco);
+    border-color: var(--color-bosque-osc);
+}
+
+/* Filas alternas para facilitar la lectura de tablas largas. */
+tbody tr:nth-child(even) {
+    background-color: var(--color-piedra);
+}
+
+tbody tr:hover {
+    background-color: #fdf0e4;
+}
+
+tfoot td,
+tfoot th {
+    background-color: var(--color-piedra-osc);
+    font-weight: bold;
+}
+
+
+/* ==========================================================================
+   9. Formulario
+   ========================================================================== */
+
+.formulario {
+    background-color: var(--color-blanco);
+    border-radius: var(--radio);
+    padding: 1.5rem;
+    box-shadow: var(--sombra);
+}
+
+fieldset {
+    border: 1px solid var(--color-piedra-osc);
+    border-radius: var(--radio);
+    padding: 1rem 1.2rem 1.4rem;
+    margin: 0 0 1.5rem;
+}
+
+legend {
+    font-weight: bold;
+    color: var(--color-bosque);
+    padding: 0 0.5rem;
+}
+
+.campo {
+    margin-bottom: 1rem;
+}
+
+.campo label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+.campo input[type="text"],
+.campo input[type="email"],
+.campo input[type="tel"],
+.campo input[type="date"],
+.campo input[type="number"],
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 0.55rem 0.7rem;
+    font: inherit;
+    color: var(--color-texto);
+    background-color: var(--color-piedra);
+    border: 1px solid var(--color-piedra-osc);
+    border-radius: var(--radio);
+}
+
+.campo textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Dos campos en la misma fila cuando hay espacio suficiente. */
+.campo-doble {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+/* Grupos de botones de radio y de casillas de verificacion. */
+.opciones label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-right: 1.2rem;
+    font-weight: normal;
+}
+
+.ayuda {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: normal;
+    color: var(--color-texto-suave);
+}
+
+/* Marca visual de los campos obligatorios. */
+.obligatorio {
+    color: var(--color-sendero-osc);
+    font-weight: bold;
+}
+
+.botonera {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.boton {
+    display: inline-block;
+    padding: 0.7rem 1.6rem;
+    font: inherit;
+    font-weight: bold;
+    color: var(--color-blanco);
+    background-color: var(--color-sendero);
+    border: none;
+    border-radius: var(--radio);
+    cursor: pointer;
+    transition: background-color var(--transicion);
+}
+
+.boton:hover {
+    background-color: var(--color-sendero-osc);
+    color: var(--color-blanco);
+}
+
+.boton--secundario {
+    background-color: var(--color-texto-suave);
+}
+
+.boton--secundario:hover {
+    background-color: var(--color-texto);
+}
+
+
+/* ==========================================================================
+   10. Pie de pagina
+   ========================================================================== */
+
+.pie {
+    background-color: var(--color-bosque-osc);
+    color: var(--color-piedra-osc);
+    padding: 2rem 1.5rem 1rem;
+}
+
+.pie__interior {
+    max-width: var(--ancho-maximo);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.5rem;
+}
+
+.pie h2 {
+    font-size: 1.05rem;
+    color: var(--color-blanco);
+    border-bottom: 2px solid var(--color-sendero);
+    padding-bottom: 0.3rem;
+}
+
+.pie ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pie li {
+    margin-bottom: 0.4rem;
+}
+
+.pie a {
+    color: var(--color-piedra-osc);
+}
+
+.pie a:hover {
+    color: var(--color-blanco);
+    border-bottom-color: var(--color-blanco);
+}
+
+.pie address {
+    font-style: normal;
+}
+
+.pie__aviso {
+    max-width: var(--ancho-maximo);
+    margin: 1.5rem auto 0;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+
+/* ==========================================================================
+   11. Diseno adaptable (media queries)
+   ========================================================================== */
+
+/* Tabletas y moviles: la cabecera pasa a disposicion vertical y se reducen
+   los tamanos de titular y de la imagen de portada. */
+@media screen and (max-width: 720px) {
+
+    .cabecera__interior {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu ul {
+        justify-content: flex-start;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.45rem;
+    }
+
+    .hero img {
+        height: 220px;
+    }
+
+    .ficha {
+        grid-template-columns: 1fr;
+    }
+
+    .ficha dd {
+        margin-bottom: 0.5rem;
+    }
+
+    main {
+        padding: 1.5rem 1rem 2.5rem;
+    }
+}
+em 2.5rem;
+    }
+}
